@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chatbot.MainPage" >
+
+    <ContentPage.BackgroundImageSource>
+        <FileImageSource File="background.png" />
+    </ContentPage.BackgroundImageSource>
+
+    <StackLayout>
+        <ScrollView VerticalOptions="FillAndExpand" >
+            <StackLayout x:Name="MessageContainer" Padding="10" >
+                <!-- Question Message Display on Screen -->
+            </StackLayout>
+        </ScrollView>
+
+        <!-- MessageEntry -->
+        <StackLayout Orientation="Horizontal" Margin="10,0,5,10" HorizontalOptions="FillAndExpand" >
+            <Frame BorderColor="Black" CornerRadius="25" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand" >
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Frame_Tapped" />
+                </Frame.GestureRecognizers>
+                <Editor x:Name="MessageEntry"
+                        Placeholder="Message"
+                        FontSize="14"
+                        TextColor="Black"
+                        VerticalOptions="Center"
+                        HorizontalOptions="StartAndExpand"
+                        Margin="15,5,15,0"
+                        AutoSize="TextChanges"
+                        Completed="MessageEntry_Completed" />
+            </Frame>
+
+            <!-- Send Button-->
+            <Button Text="Send"
+                    FontSize="14"
+                    CornerRadius="25"
+                    HeightRequest="50"
+                    WidthRequest="75"
+                    VerticalOptions="End"
+                    HorizontalOptions="Start"
+                    BackgroundColor="LightBlue"
+                    Clicked="SendMessage_Clicked"
+                    Margin="5,0,10,0" >
+            </Button>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

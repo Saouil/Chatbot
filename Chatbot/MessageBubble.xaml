@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Chatbot.MessageBubble">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+           
+        <!-- Profile Picture beside the Message Bubble -->
+        <Image Grid.Column="0"
+               Source="default_profile.png"
+               HeightRequest="40"
+               WidthRequest="40"
+               VerticalOptions="Start"
+               HorizontalOptions="Start"
+               Margin="0,0,10,0" >
+            <Image.Clip>
+                <EllipseGeometry Center="19,19" RadiusX="18" RadiusY="17" />
+            </Image.Clip>
+        </Image>
+
+        <!-- Bubble Frame -->
+        <Frame x:Name="BubbleFrame"
+               Grid.Column="1"
+               Padding="10"
+               BackgroundColor="{Binding BubbleColor}"
+               CornerRadius="15"
+               VerticalOptions="Start"
+               HorizontalOptions="Start">
+
+            <!-- Message Content -->
+            <Label x:Name="MessageContent"
+                   Text="{Binding MessageText}"
+                   TextColor="Black"
+                   LineBreakMode="WordWrap"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start" />
+        </Frame>
+    </Grid>
+</ContentView>
